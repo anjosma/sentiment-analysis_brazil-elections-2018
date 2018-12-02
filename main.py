@@ -28,9 +28,7 @@ def train():
 		texts, labels = remove_duplicates(texts, labels)
 		print('TAMANHO DO DATASET REMOVENDO REPETIÇÕES:', len(labels))
 		texts, labels = under_sampling(texts, labels)
-		#texts, labels = just_two(texts, labels)
 		print('TAMANHO DO DATASET FINAL:', len(texts))
-		print(hasdkjs)
 		tokenizer = create_tokenizer(texts)
 		length = max_length(texts)
 		vocab_size = len(tokenizer.word_index) + 1
@@ -113,28 +111,16 @@ def train():
 					print(df_[df_['arc'] == model_name].acc.mean())
 					print(df_[df_['arc'] == model_name].acc.std())
 
-					t = transform_text(['Alguem fala pro meirelles falar direito. Horrivel',
-					'Alckmin é o mais bem preparado candidato para essa eleição', 'Pro Bolsonaro ganhar ele tem que ralar muito ainda',
-					'O Ciro Gomes me representa #elesim', 'Ciro gomes não me representa, ele é pior que o bolsonaro'])
-					try:
-						x = model.predict(([t, t, t]))
-					except:
-						x = model.predict(t)
-					print(x)
 				k_fold = k_fold + 1
 
 if __name__ == '__main__':
 	epochs = 1000
 	batch_size = 8
 
-	datasets = [political_data]#, pos_neg]
-	datasets_names = ['political_data']#,'pos_neg']
+	datasets = [political_data]
+	datasets_names = ['political_data']
 
-	models = [#test, blstm, mlp, , lstm, 
-	cnn_blstm,multiple
-	]
-	models_names = [#'test','blstm', 'mlp', 'cnn_blstm', 'lstm', 
-	'cnn_blstm', 'multiple',
-	]
+	models = [cnn_blstm,multipl]
+	models_names = ['cnn_blstm', 'multiple']
 
 	train()
