@@ -25,7 +25,7 @@ def sent_16_translate():
 	return database, labels
 
 def political_data():
-	df = pd.read_csv('labeled_samples2.csv', index_col=[0])
+	df = pd.read_csv('labeled_samples.csv', index_col=[0])
 	database = df['text'].tolist()
 	labels = df['label'].tolist()
 	return database, labels

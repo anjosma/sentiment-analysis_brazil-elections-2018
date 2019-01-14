@@ -120,7 +120,7 @@ if __name__ == '__main__':
 	datasets = [political_data]
 	datasets_names = ['political_data']
 
-	models = [cnn_blstm,multipl]
+	models = [cnn_blstm,multiple]
 	models_names = ['cnn_blstm', 'multiple']
 
 	train()
